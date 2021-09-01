@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Meetups</title>
+    <link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}">
+    <link rel="stylesheet" href="{% static 'meetups/styles/all-meetups.css' %}">
+<body>
+	<header id='main-header'>
+		<nav><a href="/meetups" id="main-logo">Visas Overview </a></nav>
+		<h1> We got great infos
+		<p>Find the best infos</p>	
+		</h1>
+
+	</header>
+	<main>
+		<section>
+			<h1>Muahahahahha!<h1>
+			<p>AMAZING</p>
+			<ol>
+				
+				{% for v in visas %}
+					<li class="meetup-item">
+						<article>
+							<div class="meetup-summary">
+								<div class="meetup-image">
+									<img src="", alt="">
+								</div>
+								<div class = "meetup-details">
+									<h3>
+										{{v.title}}
+									</h3>
+									<address>{{v.location}}</address>
+
+							</div>
+
+							<div class="meetup-actions">
+								<!-- <a href="/meetups/{{v.slug}}" class ="btn">More details</a> -->
+								<a href="{% url 'meetup-details' v.slug %}" class ="btn">More details</a>
+							</div>
+						</article>
+						</li>
+			 	{% endfor %}
+
+		 	</ol>
+ 	</main>
+ </section>
+</body>
+</html>  

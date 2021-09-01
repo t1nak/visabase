@@ -17,3 +17,17 @@ def index(request):
 
 
 
+def meetup_details(request, meetup_slug):
+	print(meetup_slug)
+	selected_visa = {
+	'title': 'TRV',
+	'description':'This is the temporary visa!'
+	}
+	return render(request,'meetups/meetup_details.html',
+		{'visa_title': selected_visa['title'],
+		'visa_description': selected_visa['description']
+		}
+		)
+
+
+

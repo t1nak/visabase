@@ -20,5 +20,6 @@ from . import views
 
 urlpatterns = [
     path('meetups/' #domain.com/meetups
-    	, views.index), #views should be executed 
+    	, views.index, name='all-meetups'), #views should be executed 
+    path('meetups/<slug:meetup_slug>', views.meetup_details, name='meetup-details'),
 ]
