@@ -15,7 +15,8 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+MEDIA_ROOT = BASE_DIR/'uploads'
+MEDIA_URL = '/files/'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -24,6 +25,9 @@ SECRET_KEY = 'f442istv_9j1%x_iym7s1yqv7q7b5g*we(zz#@iu7t#4n!p6z-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+
+
 
 ALLOWED_HOSTS = []
 
@@ -119,3 +123,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+

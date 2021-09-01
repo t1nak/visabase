@@ -1,33 +1,37 @@
 from django.shortcuts import render
 
 # Create your views here.
-
+from .models import Visa
 
 def index(request):
-	meetups = [{ 'title': 'First VISA', 'location':'cape Town', 'slug': 'a-first-meetup'},
-	{ 'title': 'Second VISA', 'location':'johannesburg', 'slug': 'a-second-meetup'},
-
-	]
-
+	meetups = Visa.objects.all()
 
 	return render(request,'meetups/index.html',
-		{'show_visas': False,
+		{
 		'visas':meetups}
 		)
 
 
 
 def meetup_details(request, meetup_slug):
-	print(meetup_slug)
-	selected_visa = {
-	'title': 'TRV',
-	'description':'This is the temporary visa!'
-	}
-	return render(request,'meetups/meetup_details.html',
-		{'visa_title': selected_visa['title'],
-		'visa_description': selected_visa['description']
-		}
-		)
+ 	
+ 	try:
+ 		selected_visa =  Visa.objects.get(slug=meetup_slug)
+ 		return render(request,'meetups/meetup_details.html',
+			{
+			'visa_found': True,
+			'visa_title': selected_visa.title,
+			'visa_description': selected_visa.description
+			}
+			)
+ 	except Exception as exc:
+ 		return render(request,'meetups/meetup_details.html',
+			{'visa_title': selected_visa.title,
+			'visa_found': False,
+			'visa_description': selected_visa.description
+			}
+			)		
+
 
 
 

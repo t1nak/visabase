@@ -16,6 +16,9 @@
 {% endblock %}
 
 {% block body %}
+
+{% if visa_found%}
+
 <article>
 	<img src="" alt="">
 	<section id="location"> 
@@ -41,4 +44,8 @@
 	
 </section>
 </article>
+{% else%}
+<p> No Visa found </p>
+{% endif%}
+
 {% endblock %}

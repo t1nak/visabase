@@ -25,7 +25,7 @@ Be ready for home affairs!
 	<ol>
 		
 		{% for v in visas %}
-		{% include 'meetups/includes/visa-item.html' with title=v.title location=v.location%}
+		{% include 'meetups/includes/visa-item.html' with title=v.title  image=v.image.url location="New york" slug=v.slug%}
 	 	{% endfor %}
 
  	</ol>
